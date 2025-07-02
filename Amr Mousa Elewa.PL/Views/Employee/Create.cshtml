@@ -1,0 +1,55 @@
+﻿@model  Employee
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Add New Employee</h1>
+
+<form asp-action="Create">
+  <div>
+    <div class="mb-3">
+        <label class="col-form-label" asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="col-form-label" asp-for="Age"></label>
+        <input asp-for="Age" class="form-control" />
+        <span asp-validation-for="Age" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="col-form-label" asp-for="Address"></label>
+        <input asp-for="Address" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <input asp-for="IsActive" class="form-check-input" />        
+        <label class="col-form-label" asp-for="IsActive"></label>
+    </div>
+    <div class="mb-3">
+        <label class="col-form-label" asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>  <div class="mb-3">
+        <label class="col-form-label" asp-for="PhoneNumber"></label>
+        <input asp-for="PhoneNumber" class="form-control" />
+        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+    </div>
+        <div class="mb-3">
+            <label class="col-form-label" asp-for="Salary"></label>
+            <input asp-for="Salary" class="form-control" />
+        </div>
+    <div class="mb-3">
+        <label class="col-form-label" asp-for="HireDate"></label>
+        <input asp-for="HireDate" class="form-control" />
+
+        </div>
+    </div>      <div class="mb-3">
+        <label class="col-form-label" asp-for="Image"></label>
+        <input asp-for="Image" class="form-control" />
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a asp-controller="Employee" asp-action="Index" class="btn btn-light">Back to list</a>
+</form>
+
+

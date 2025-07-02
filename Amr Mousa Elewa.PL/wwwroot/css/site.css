@@ -1,0 +1,68 @@
+
+
+body {
+    margin-bottom: 60px;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1;
+}
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.footer {
+    position: relative;
+    margin-top: auto;
+}
+
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+/* Navbar Styles */
+.navbar {
+    background-color: #343a40;
+    font-size: 1.2rem;
+}
+
+
+    .navbar .navbar-nav .nav-link {
+        color: #ffffff; /* White color for nav links */
+        padding: 15px 20px; /* Spacing for nav links */
+    }
+
+        .navbar .navbar-nav .nav-link:hover {
+            background-color: honeydew; /* Background color on hover */
+            color: #ffffff; /* White color on hover */
+        }
+
+.navbar-toggler-icon {
+    background-color: #ffffff; /* White icon for toggler */
+}
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}

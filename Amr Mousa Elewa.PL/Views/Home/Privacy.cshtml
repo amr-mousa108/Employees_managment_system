@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Contact Information";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Welcome to my contact page. Feel free to reach out to me using the information below:</p>
+
+<div class="contact-info">
+    <h2>Contact Details</h2>
+    <p><strong>Email:</strong> <a href="mailto:amarmousa1223@gmail.com" style="font-size: 1.2rem; color: #007bff;">amarmousa1223@gmail.com</a></p>
+    <p><strong>Phone:</strong> <span style="font-size: 1.2rem; color: #343a40;">+20 1227194282</span></p>
+</div>
+
+<!-- CSS Styling -->
+<style>
+    body {
+        background-color: #f8f9fa;
+        color: #343a40;
+    }
+
+    h1 {
+        color: #007bff;
+        font-size: 2rem;
+    }
+
+    h2 {
+        color: #007bff;
+        font-size: 1.5rem;
+    }
+
+    .contact-info {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+        .contact-info p {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-info a {
+            font-size: 1.2rem;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+            .contact-info a:hover {
+                text-decoration: underline;
+            }
+</style>

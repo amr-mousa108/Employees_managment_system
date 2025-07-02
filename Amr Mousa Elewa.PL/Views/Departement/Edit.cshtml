@@ -1,0 +1,31 @@
+﻿@model Departement
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Departement</h1>
+<br />
+<br />
+
+<form asp-action="UpdateData" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <input type="hidden" asp-for="Id" /> <!-- Include this to pass the ID with the form submission -->
+    <div class="mb-3">
+        <label class="col-form-label" asp-for="Code"></label>
+        <input asp-for="Code" class="form-control" />
+        <span asp-validation-for="Code" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="col-form-label" asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="col-form-label" asp-for="DateOfCreation"></label>
+        <input asp-for="DateOfCreation" class="form-control" />
+        <span asp-validation-for="DateOfCreation" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a asp-controller="Departement" asp-action="Index" class="btn btn-light">Back to list</a>
+</form>

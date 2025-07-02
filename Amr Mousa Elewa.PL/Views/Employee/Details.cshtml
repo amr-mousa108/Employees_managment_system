@@ -1,0 +1,51 @@
+﻿@model Employee
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+  <div>
+    <div class="mb-3">
+        <label class="col-form-label">Employee Image</label>
+        <div>
+            <img src="@Model.Image" alt="Employee Image" style="max-width: 200px; max-height: 200px;" />
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="col-form-label" asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" readonly />
+    </div>
+    <div class="mb-3">
+        <label class="col-form-label" asp-for="Age"></label>
+        <input asp-for="Age" class="form-control" readonly />
+    </div>
+    <div class="mb-3">
+        <label class="col-form-label" asp-for="Address"></label>
+        <input asp-for="Address" class="form-control" readonly />
+    </div>
+    <div class="mb-3">
+        <input asp-for="IsActive" class="form-check-input" readonly />
+        <label class="col-form-label" asp-for="IsActive"></label>
+    </div>
+    <div class="mb-3">
+    <label class="col-form-label" asp-for="Email"></label>
+    <input asp-for="Email" class="form-control" readonly />
+    </div>
+    <div class="mb-3">
+        <label class="col-form-label" asp-for="PhoneNumber"></label>
+        <input asp-for="PhoneNumber" class="form-control" readonly />
+    </div>
+    <div class="mb-3">
+        <label class="col-form-label" asp-for="Salary"></label>
+        <input asp-for="Salary" class="form-control" readonly />
+    </div>
+    <div class="mb-3">
+        <label class="col-form-label" asp-for="HireDate"></label>
+        <input asp-for="HireDate" class="form-control" readonly />
+    </div>
+    <a asp-controller="Employee" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-secondary">Edit </a>
+
+    <a asp-controller="Employee" asp-action="Index" class="btn btn-light">Back to list </a>
+</div>
