@@ -1,4 +1,5 @@
 ﻿using Demo.DAL.Models;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -14,6 +15,9 @@ namespace Demo.DAL.Data.Configurations
         public void Configure(EntityTypeBuilder<Departement> builder)
         {
             builder.Property(D => D.Id).UseIdentityColumn(10, 10);
+
+            builder.HasMany(e => e.Employees)
+                .WithOne(d => d.Departement);
 
         }
     }

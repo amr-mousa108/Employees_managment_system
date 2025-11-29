@@ -1,15 +1,14 @@
-﻿@model IEnumerable<Employee>
+﻿@* @model IEnumerable<Employee>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "All Employees";
 }
 
-<h1>All Employees</h1>
-<br />
-<br />
+<div class="container py-4" style="background-color: #f8f9fa; min-height:100vh;">
+    <h1 class="mb-4 text-center" style="color:#343a40;">All Employees</h1>
 
-<a asp-controller="Employee" asp-action="Create" class="btn btn-primary">Add New Employee</a>
-<br />
-<br />
+    <div class="mb-4 text-center">
+        <a asp-controller="Employee" asp-action="Create" class="btn btn-primary btn-lg">Add New Employee</a>
+    </div>
 
 @if (Model.Any())
 {
@@ -20,7 +19,7 @@
                 <div class="card mb-4" style="padding: 20px;">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img src="@employee.Image" class="img-fluid rounded-start" alt="Employee Image">
+                            <img src="~/Images/@employee.Image" class="img-fluid rounded-start" alt="Employee Image">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -46,3 +45,54 @@ else
         <h1>There are no Employees :(</h1>
     </div>
 }
+
+
+ *@
+ @model IEnumerable<Employee>
+@{
+    ViewData["Title"] = "All Employees";
+}
+
+<!-- صفحة فيها Container و Padding -->
+<div class="container py-4" style="background-color: #e9ecef; min-height: 100vh;">
+    <h1 class="mb-4 text-center text-dark">All Employees</h1>
+
+    <div class="mb-4 text-center">
+        <a asp-controller="Employee" asp-action="Create" class="btn btn-primary btn-lg">Add New Employee</a>
+    </div>
+
+    @if (Model.Any())
+    {
+        <div class="row">
+            @foreach (var employee in Model)
+            {
+                <div class="col-md-6">
+                    <div class="card mb-4 shadow-sm" style="padding: 20px; border-radius: 10px; background-color: #ffffff;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="~/Images/@employee.Image" class="img-fluid rounded-start" alt="Employee Image">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h4 class="card-title">@employee.Name</h4>
+                                    <p class="card-text" style="font-size: 1.1rem;">
+                                        <strong>Address:</strong> @employee.Address<br />
+                                        <strong>Active:</strong> @(employee.IsActive ? "Yes" : "No")
+                                    </p>
+                                    <a asp-controller="Employee" asp-action="Details" asp-route-id="@employee.Id" class="btn btn-warning" style="font-size: 1rem;"><i class="fas fa-eye"></i> Details</a>
+                                    <a asp-controller="Employee" asp-action="Edit" asp-route-id="@employee.Id" class="btn btn-success" style="font-size: 1rem;"><i class="fas fa-edit"></i> Update</a>
+                                    <a asp-controller="Employee" asp-action="Delete" asp-route-id="@employee.Id" class="btn btn-danger" style="font-size: 1rem;"><i class="fas fa-trash"></i> Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="mt-4 alert alert-warning text-center">
+            <h4>There are no Employees :(</h4>
+        </div>
+    }

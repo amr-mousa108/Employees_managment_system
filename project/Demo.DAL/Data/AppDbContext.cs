@@ -16,7 +16,7 @@ namespace Demo.DAL.Data
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server =DESKTOP-F98TVOQ ;DataBase = My_Project ; Trusted_Connection =True;TrustServerCertificate=True;")
+            optionsBuilder.UseSqlServer("Server =DESKTOP-F98TVOQ ;DataBase = EmployeemanagmentSystems ; Trusted_Connection =True;TrustServerCertificate=True;")
         ;
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

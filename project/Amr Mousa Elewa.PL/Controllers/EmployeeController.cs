@@ -6,16 +6,19 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 namespace Amr_Mousa_Elewa.PL.Controllers
 {
     public class EmployeeController : Controller
     {
+        private readonly IDepartementRepository _departementRepo; 
 
         private readonly IEmployeeRepository _employeeRepository;
-        public EmployeeController(IEmployeeRepository employeeeRepository)
+        public EmployeeController(IEmployeeRepository employeeeRepository ,IDepartementRepository departementRepository)
 
         {
            _employeeRepository= employeeeRepository;
+            _departementRepo = departementRepository;
         }
         //  /Employee/Index/
         public IActionResult Index()
@@ -31,18 +34,20 @@ namespace Amr_Mousa_Elewa.PL.Controllers
         [HttpGet]
         public IActionResult Create()
         {
+            ViewBag.Departments = new SelectList(_departementRepo.GetAll(), "Id", "Name");
             return View();
-
         }
+
         [HttpPost]
         public IActionResult Create(Employee employee)
         {
             if (ModelState.IsValid)
             {
-                var count = _employeeRepository.Add(employee);
-                if (count > 0)
-                    return RedirectToAction(nameof(Index));
+                _employeeRepository.Add(employee);
+                return RedirectToAction(nameof(Index));
             }
+
+            ViewBag.Departments = new SelectList(_departementRepo.GetAll(), "Id", "Name", employee.DeptId);
             return View(employee);
         }
 
